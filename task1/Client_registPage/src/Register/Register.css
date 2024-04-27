@@ -1,0 +1,45 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button
+ {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ input[type='number']{
+    -moz-appearance: textfield;
+}
+
+.registerPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color:red; */
+}
+.register .profile{
+    text-align: center;
+}
+.registerForm label input{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.register{
+    width: 80%;
+    border: 2px solid red;
+}
+.registerBtn{
+    display: flex;
+    justify-content: center;
+}
+.registerPage{
+    padding: 5px 10px;
+}
+.registerForm{
+    padding: 5px 10px;
+}
+.registerBtn button{
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 4px;
+    border: none;
+    padding: 4px 5px;
+    cursor: pointer;
+}
