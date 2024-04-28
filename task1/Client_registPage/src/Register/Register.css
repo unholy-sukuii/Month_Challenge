@@ -12,7 +12,18 @@ input[type="number"]::-webkit-outer-spin-button
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     /* background-color:red; */
+}
+.fullName,.email, .phoneNumber,.address,.password,.confirmPassword{
+    border: 1px solid rgb(175, 175, 175);
+    margin-bottom: 3px;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+.error{
+    font-size: small;
+    color: red;
 }
 .register .profile{
     text-align: center;
@@ -22,7 +33,6 @@ input[type="number"]::-webkit-outer-spin-button
     margin-top: 10px;
 }
 .register{
-    width: 80%;
     border: 2px solid red;
 }
 .registerBtn{
@@ -34,6 +44,11 @@ input[type="number"]::-webkit-outer-spin-button
 }
 .registerForm{
     padding: 5px 10px;
+}
+.showPass{
+    margin-left: 3px;
+    cursor: pointer;
+    font-size: small;
 }
 .registerBtn button{
     width: 100%;
