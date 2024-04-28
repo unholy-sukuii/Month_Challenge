@@ -2,6 +2,8 @@
 const express = require("express");
 const { connectDatabase } = require("./database/database");
 const app =express();
+const bcrypt = require("bcryptjs")
+
 
 //cors
 const cors = require("cors")
@@ -34,11 +36,14 @@ app.post("/register",async(req,res)=>{
         const phoneFound = await User.find({phoneNumber:phoneNumber})
         if(emailFound.length>0 || phoneFound.length>0){
             return res.status(400).json({
-                message:(emailFound?`This email ${email} is already connected with another accound`:`This email ${phoneNumber} is already connected with another accound`)
+                message:((emailFound.length>0)?`Email: ${email} is already taken`:`Phone: number ${phoneNumber} is already taken`)
             })
         }
         const user = await User.create({
-            fullName,email,phoneNumber,password,address,confirmPassword
+            fullName,email,phoneNumber,
+            password:bcrypt.hashSync(password,10),
+            address,
+            confirmPassword:bcrypt.hashSync(confirmPassword,10)
         })
         res.status(201).json({
             message:"User registered successfully",
@@ -50,8 +55,6 @@ app.post("/register",async(req,res)=>{
             message: "Internal Server Error"
         });
     }
-
-
 })
 
 app.listen(5000,(req,res)=>{
